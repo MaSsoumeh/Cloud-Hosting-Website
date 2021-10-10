@@ -310,3 +310,16 @@ a {
     align-items: center;
     column-gap: 30px;
 }
+/* Media */
+.media {
+    display: flex;
+}
+.media__body h3{
+    margin-top: 0;
+}
+.media__body{
+    margin-left: 1rem;
+}
+.media__image{
+    margin-top: 1rem;;
+}
