@@ -304,13 +304,6 @@ a {
     display: block;
     font-size: 1.7rem;
 }
-.grid{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
-    align-items: center;
-    column-gap: 30px;
-}
 /* Media */
 .media {
     display: flex;
@@ -346,4 +339,18 @@ a {
     font-style: normal;
     font-weight:500;
     margin-bottom: 0;
+}
+/* Grids*/
+.grid{
+    display: grid;
+}
+@media screen and (min-width: 768px){
+    .grid--cols--2{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (min-width: 1024px) {
+    .grid--cols--3{
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
