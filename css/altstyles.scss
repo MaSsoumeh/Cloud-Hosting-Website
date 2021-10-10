@@ -1,0 +1,13 @@
+
+   $accentColor: #ff3400;
+    $bodyColor: #918ca4;
+    $headingsColor: #1b0760;
+    $primaryColor: #2584ff;
+    $secondaryColor: #00d9ff;
+
+body {
+    color: $bodyColor;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 2.4rem;
+    line-height: 1.5; /*1.5 times of the current font size*/
+}

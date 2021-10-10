@@ -4,8 +4,9 @@
   --color-headings: #1b0760;
   --color-primary: #2584ff;
   --color-secondary: #00d9ff;
+  --color-border: #ccc;
 }
-*, *::after, ::before {
+*, *::after, *::before {
     box-sizing: border-box;
 }
 /* Typography */
@@ -100,9 +101,12 @@ a {
 }
 /*Lists*/
 .list {
+    
     list-style: none;
     font-size: 2rem;
     padding-left: 0;
+    color: var(--color-headings)
+    
 }
 .list--inline .list__items {
     display: inline;
@@ -114,6 +118,7 @@ a {
 }
 .list__items {
     color:var(--color-headings);
+    margin-bottom: 2rem;
 }
 .list--tick .list__items {
     margin-left: 0.5rem;
@@ -130,12 +135,12 @@ a {
     height: 40px;
 }
 .icon--primary {
-   fill : var(--color-primary);
+   fill : var(--color-primary) !important;
 }
 .icon-wrapper {
     align-items: center;
     background: #f3f9fa;
-    border-radius: 100%;
+    border-radius: 50%;
     display: inline-flex;
     height: 64px;
     justify-content: center;
@@ -144,6 +149,7 @@ a {
 }
 /*Buttons*/
 .btn {
+   display: flex;
     border-radius: 40px;
     border: 0;
     cursor: pointer;
@@ -154,23 +160,30 @@ a {
     white-space: nowrap;
     margin: 1rem 0;
 }
+.btn--primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+.btn--primary:hover{
+    background-color: #1f73e2;
+}
 .btn--secondary {
     background: var(--color-secondary);
     color: white;
 }
 .btn--secondary:hover {
-    background: #03ccf0 /*preferred to use SAS darker(primary, 10%)*/
+    background: #04bbdb /*preferred to use SAS darker(primary, 10%)*/
 }
 .btn--accent {
     background: var(--color-accent);
     color: white;
 }
 .btn--accent:hover {
-    background: rgb(211, 35, 4);  /* preferred to use SAS darker(primary, 10%)*/  
+    background: rgb(233, 37, 3);  /* preferred to use SAS darker(primary, 10%)*/  
 }
 .btn--outline {
     background: white;
-    border: 2px solid var(--color-headings);
+    border: 1px solid var(--color-headings);
     color:var(--color-headings);
     display: inline-block;
     text-align: center;
@@ -180,7 +193,7 @@ a {
     background: var(--color-headings);
     color: white;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) { /* Desktop Version */
     .btn {
         font-size: 1.5rem;
     }
@@ -189,17 +202,111 @@ a {
 .input {
     padding: 2rem 3rem;
     border-radius: 40px;
-    border: 1px solid lightgray;
+    border: 1px solid var(--color-border);
     color: var(--color-headings);
     font-size: 2rem;
     outline: 0;
 }
 ::placeholder {
     font-size: 1.5rem;
-    color: lightgray;
+    color: var(--color-border);
+}
+.input-group {
+    margin: 20px;
+    border-radius: 40px;
+    display: flex;
+    box-shadow: 10px 10px 30px var(--color-border);
+}
+.input-group .input {
+    border: none;
+    flex-grow: 1;
+}
+.input-group .btn {
+    align-items: center;
+    margin: 4px 0;
 }
 @media screen and (min-width:1024px) {
     .input {
         font-size: 1.5rem;
     }
+}
+/*card */
+.card {
+    display: inline-block;
+    border-radius: 10px;
+    margin: 0 auto;
+    max-width: 500px;
+    box-shadow: 3px 3px 30px 5px var(--color-border);
+}
+.card--secondary {
+    width: 340px;    
+}
+.card--primary {
+    width: 400px;
+    height: 550px; 
+}
+.card--primary .card__header {
+    background-color: var(--color-primary);
+}
+.card__header{
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 2rem 7%;
+    border-radius: 10px 10px 0 0;;
+}
+.card--secondary .badge--secondary {
+    background: #02cdf1;
+}
+.card--primary .badge--primary {
+    background: #0a70f7;
+}
+.card__body {
+    padding: 2rem 7%
+}
+.plan {
+    
+    margin-top: 20px;
+    transition: transform .2s ease-out;
+    transition-property: transform;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+    transition-delay: 0s;
+}
+.plan--popular .card__header{
+    position: relative;
+}
+.plan--popular .card__header::before{
+    content: url(../images/popular.svg);
+    display: inline-block;
+    width: 60px;
+    height:60px;
+    position: absolute;
+    top: 0;
+    right:5%;
+
+}
+.plan:hover{
+    transform: scale(1.09);
+}
+.plan__name {
+    font-size: 1.5rem;
+    font-weight: lighter;
+    color:white !important;
+}
+.plan__price {
+    font-size: 4rem;
+}
+.plan__billing-cycle{
+    font-size: 1.5rem;
+}
+.plan__description {
+    display: block;
+    font-size: 1.7rem;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    column-gap: 30px;
 }
