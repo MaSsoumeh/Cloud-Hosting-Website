@@ -1,6 +1,6 @@
 :root {
   --color-accent: #ff3400;
-  --color-body: #918ca4;
+  --color-body: #c6c5cc;
   --color-body-darker: #716d81f5;
   --color-headings: #1b0760;
   --color-primary: #2584ff;
@@ -148,6 +148,12 @@ a {
     width: 64px;
 
 }
+.icon-wrapper--accent {
+    background: var(--color-accent) !important;
+}
+.icon-wrapper--dark {
+    background: rgba(49, 48, 48, 0.562) !important;
+}
 /*Buttons*/
 .btn {
    display: flex;
@@ -178,6 +184,10 @@ a {
 .btn--accent {
     background: var(--color-accent);
     color: white;
+}
+.btn--stretched {
+    padding-left: 6rem;
+    padding-right:6rem;
 }
 .btn--accent:hover {
     background: rgb(233, 37, 3);  /* preferred to use SAS darker(primary, 10%)*/  
@@ -236,7 +246,7 @@ a {
     display: inline-block;
     border-radius: 10px;
     margin: 0 auto;
-    max-width: 500px;
+    /* max-width: 500px; */
     box-shadow: 3px 3px 30px 5px var(--color-border);
 }
 .card--secondary {
@@ -285,6 +295,11 @@ a {
     top: 0;
     right:5%;
 
+}
+@media screen and (min-width: 1024px) {
+    .plan__name {
+        font-size: 1.4rem;
+    }
 }
 .plan:hover{
     transform: scale(1.09);
@@ -344,7 +359,7 @@ a {
 .grid{
     display: grid;
 }
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
     .grid--cols--2{
         grid-template-columns: repeat(2, 1fr);
     }
@@ -352,5 +367,138 @@ a {
 @media screen and (min-width: 1024px) {
     .grid--cols--3{
         grid-template-columns: repeat(3, 1fr);
+    }
+}
+/* Testimonials */
+.testimonial {
+    padding: 3rem;
+}
+.testimonial__image {
+    width:100%;
+}
+.testimonial__images__container {
+    position:relative;
+}
+.testimonial__images__container > .icon-wrapper {
+    position: absolute;
+    bottom: -32px;
+    right: 41%;
+}
+@media screen and (min-width: 768px) {
+    .testimonial__images__container > .icon-wrapper {
+        top: 3rem;
+        right: -32px;
+    }
+    .testimonial .quote {
+        font-size: 2.4rem;
+    }
+}
+.testimonial .quote {
+    margin-left: 6rem;
+}
+
+/* callouts */
+ .callout--primary {
+     background-color: var(--color-primary);
+     border-radius: 20px;
+     padding: 20px;
+ }
+ .callout__heading {
+     margin-top: 0;
+     font-size: 3rem;
+     color: #ffff;
+ }
+ .callout .btn {
+     align-self: center;
+     justify-self: center;
+ }
+ .callout--content {
+     text-align: center;
+ }
+ @media screen and (min-width: 768px) {
+    .callout .grid--cols--2 {
+        grid-template-columns: 1fr auto ;
+    } 
+    .callout--content {
+         text-align: left;
+     }
+     .callout .btn {
+         justify-self: start;
+         margin-left:2rem;
+     }
+ }
+ /* Collapsible */
+.collapsible__header {
+    display: flex;
+    justify-content: space-between;
+}
+.collapsible__heading {
+    margin-top: 0;
+    font-size: 3rem;
+}
+.collapsible__content{
+   max-height: 0;
+   opacity: 0;
+   transition: all 0.3s;
+   overflow: hidden;
+
+}
+.collapsible__chevron{
+    transform: rotate(-90deg);
+    transition: transform 0.3s;
+}
+.collapsible--expanded .collapsible__chevron{
+    transform: rotate(0);
+}
+.collapsible--expanded .collapsible__content{
+    max-height: 100vh;
+    opacity: 1;
+}
+/* Navigation */
+.nav {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+.nav__list {
+    width: 100%;
+    margin: 0;
+}
+.nav__item {
+    padding: 0.5rem 2rem;
+    border-bottom: 1px solid rgb(78, 77, 77);
+}
+.nav__item > a {
+    color: var(--color-body);
+}
+.nav__item > a:hover {
+    color:#fff;
+    transition: color 0.3s;
+}
+.nav__toggler {
+    opacity: 0.5;
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+.nav.collapsible--expanded .nav__toggler {
+    opacity: 1;
+    box-shadow: 0 0 0 3px #666;
+    border-radius: 5px;
+}
+@media screen and (min-width:768px) {
+    .nav__toggler {
+        display: none;
+    }
+    .nav__list {
+        width: auto;
+        display: flex;
+        max-height: 100%;
+        opacity: 1;
+    }
+    .nav__item {
+        border-bottom:0;
     }
 }
